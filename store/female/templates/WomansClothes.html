@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+
+<ul class="grid">
+    {% for m in Model %}
+        {% if m.image %}
+        <div class="grid-item">
+            <a href="{% url 'womans_product' slug=m.slug %}">
+                <img src="{{ m.image.url }}" alt="Зображення {{ m.name }}">
+            </a>
+            <div class="info">
+                <p>{{ m.price }} {{ m.name }}</p>
+            </div>
+        </div>
+        {% endif %}
+    {% empty %}
+        <p>Немає товарів</p>
+    {% endfor %}
+</ul>
+{% endblock %}

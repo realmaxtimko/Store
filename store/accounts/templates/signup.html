@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/auth.css' %}"> <!-- Якщо потрібні стилі -->
+</head>
+<body>
+{% block content %}
+{% load form_filters %}
+<div class="shadow-wrap">
+  <div class="form-wrap">
+    <h3>Signup</h3>
+    <form method="post">
+      {% csrf_token %}
+    
+      <label>{{ form.username.label }}</label>
+      {{ form.username|add_class:"form-control"|add_placeholder:"Enter your username" }}
+      
+      <label>{{ form.password1.label }}</label>
+      {{ form.password1|add_class:"form-control"|add_placeholder:"Enter your password" }}
+      
+      <label>{{ form.password2.label }}</label>
+      {{ form.password2|add_class:"form-control"|add_placeholder:"Confirm your password" }}
+      
+      <button type="submit">Sign up</button>
+    </form>
+    
+    <a class="signup-link" href="{% url 'loginView' %}">Login</a>
+  </div>
+</div>
+{% endblock content %}
+</body>
+</html>

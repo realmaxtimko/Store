@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: space-between; /* Простір між лівою і правою частинами */
+    align-items: center; /* Вирівнювання по вертикалі */
+    list-style: none;
+    background-color: #f4f4f4;
+    padding: 10px 20px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #333;
+}
+
+.nav-links {
+    display: flex; /* Горизонтальне вирівнювання пунктів меню */
+    gap: 20px; /* Відстань між пунктами меню */
+}
+
+.nav-links li {
+    margin: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    
+}
+
+.logo-account {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Відстань між логотипом і текстом */
+}
+
+.logo-account li a img {
+    height: 30px;
+    width: 30px;
+}
+
+.logo-different img {
+    height: 30px;
+    width: 35px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Чотири елементи в рядок */
+    list-style: none;
+    gap: 20px;
+    font-size: 13px;
+}
+
+.grid-item img {
+    height: 380px;
+    width: auto;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #f4f4f4;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

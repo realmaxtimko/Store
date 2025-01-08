@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Про нас{% endblock %}
+
+{% block content %}
+<p>Ваш запит: "{{ query }}"</p>
+
+            {% if results %}
+                <ul>
+                     {% for item in results %}
+                        {% if item.image %}
+                            <a href=""><img src="{{ item.image.url }}" alt="" height="300px" width="auto"></a>
+                            <p>{{ item.name }} — {{ item.price }} грн</p>
+                        {% else %}
+                            <p>None</p>
+                        {% endif %}
+                     {% endfor %}
+                </ul>
+            {% else %}
+                <p>Нічого не знайдено за вашим запитом.</p>
+            {% endif %} 
+{% endblock %}

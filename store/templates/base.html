@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Магазин{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-menu">
+                <div class="nav-links">
+                    <li><a href="{% url 'mans' %}">Чоловікам</a></li>
+                    <li><a href="{% url 'womens' %}">Жінкам</a></li>
+                    <li><a href="{% url 'boys' %}">Хлопчикам</a></li>
+                    <li><a href="{% url 'girls' %}">Дівчатам</a></li>
+                    <li><a href="{% url 'reference' %}">Довідка</a></li>
+                    <li><a href="{% url 'main_view' %}">Магазин</a></li>
+                    <li>
+                        <form method="get" action="{% url 'search' %}">
+                            <input type="text" name="query" placeholder="Знайти">
+                        </form>
+                    </li>
+                <div class="logo-different">
+                    <li>
+                        <a href=""><img src="{% static 'logo/png-heart-transformed.png' %}" alt=""></a>
+                    </li>
+                </div>
+                <div class="logo-different">
+                    <li>
+                        <a href="{% url 'cart' %}"><img src="{% static 'logo/png_2024-12-07_151620-transformed.png' %}" alt=""></a>
+                    </li>
+                </div>
+                </div>
+                <div class="logo-account">
+                    <li>
+                        <a href="{% url 'loginView' %}" title=""><img src="{% static 'logo/free-icon-profile-17655650.png' %}" alt="Profile Icon"></a>
+                    </li>
+                    {% if user.is_authenticated %}
+                        <li>{{ user }}</li>
+                        <li><a href="{% url 'logoutView' %}">Вийти</a></li>
+                    {% else %}
+                        <li><a href="{% url 'loginView' %}">Акаунт</a></li>
+                    {% endif %}
+                </div>
+            </ul>
+        </nav>
+    </header>
+    
+    
+    <main>
+        {% block content %}
+    
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Магазин</p>
+    </footer>
+</body>
+</html>

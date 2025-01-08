@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Кошик{% endblock %}
+
+{% block content %}
+<div class="cart-container">
+    <h2>Кошик</h2>
+    {% if cart %}
+        <table class="cart-table">
+            <tbody>
+                {% for item in cart %}
+                <tr>
+                    <td><img src="{{ item.get_image }}" alt="{{ item.item.name }}" width="100"></td>
+                    <td>{{ item.item.name }}</td>
+                    <td>{{ item.item.price }} грн</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>
+                        <a href="{% url 'remove' item.content_type.app_label item.content_type.model item.object_id %}" class="btn btn-danger">Видалити</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                
+            </tfoot>
+        </table>
+        <div class="cart-actions">
+            <td>{{ cart.item.get_price }} грн</td>
+            <a href="" class="btn btn-primary">Оформити замовлення</a>
+        </div>
+    {% else %}
+        <p>Ваш кошик порожній. <a href="{% url 'products' %}">Перейти до покупок</a></p>
+    {% endif %}
+</div>
+
+{% endblock %}
