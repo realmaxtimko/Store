@@ -18,6 +18,13 @@
             <a href="{% url 'like' app_label=app_label model_name=model_name %}" class="btn btn-secondary">
                 Сподобалось
             </a>
+            {% if messages %}
+                <script>
+                    {% for message in messages %}
+                        alert("{{ message }}");
+                    {% endfor %}
+                </script>
+            {% endif %}
         </div>
     </div>
 </div>

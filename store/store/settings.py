@@ -110,6 +110,13 @@ REST_FRAMEWORK = {
     ]
 }
 
+EEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # Наприклад, для Gmail: 'smtp.gmail.com'
+EMAIL_PORT = 587  # або 465 для SSL
+EMAIL_USE_TLS = True  # для використання TLS
+EMAIL_HOST_USER = 'timkomaksim9@gmail.com'
+EMAIL_HOST_PASSWORD = 'Nybvug-8kixny-mabqij'
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'

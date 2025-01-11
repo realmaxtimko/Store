@@ -15,7 +15,16 @@ from django.db.models import Q
 
 
 def main_view(request):
-    return render(request, 'base.html')
+    mens = MensClothing.objects.all()
+    womens = WomensClothing.objects.all()
+    boys = BoysClothing.objects.all()
+    girls = GirlsClothing.objects.all()
+    all_clothing = list(mens) + list(womens) + list(boys) + list(girls)
+
+    context = {
+        'all_clothing': all_clothing
+    }
+    return render(request, 'base.html', context=context)
 
 def reference_view(request):
     return render(request, 'reference.html')

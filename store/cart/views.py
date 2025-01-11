@@ -28,8 +28,9 @@ def add_to_cart(request, app_label, model_name, object_id):
     if not created:
         cart_item.quantity += 1
         cart_item.save()
-
-    return redirect('main_view')
+        messages.success(request, 'Успішно додано!')
+        
+    return redirect(request, 'main_view')
 
 def cartView(request):
     # Перевірка, чи користувач автентифікований
@@ -39,12 +40,14 @@ def cartView(request):
     # Отримання кошика користувача
     try:
         cart = Cart.objects.filter(user=request.user)
+        total_price = sum(item.get_price() for item in cart)
     except Cart.DoesNotExist:
         cart = None
 
     # Передача даних у шаблон
     context = {
-        'cart': cart
+        'cart': cart,
+        'total_price': total_price
     }
     return render(request, 'cart.html', context)
 

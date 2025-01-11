@@ -54,12 +54,36 @@
     
     <main>
         {% block content %}
+
+    <div id="content" class="section">
+        {% for item in all_clothing %}
+        <div class="clothing-item">
+            {% if item.image %}
+            <img src="{{ item.image.url }}" alt="{{ item.name }}">
+            <h3>{{ item.name }}</h3>
+            <p>{{ item.description }}</p>
+            <span>{{ item.price }} грн</span>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Footer -->
+    <div id="footer" class="data-container" data-id="1">
+        <p>© 2025 Reserved. Усі права захищені.</p>
+    </div>
+    <!-- End Footer -->
+
+    <!-- Static Footer -->
+    <div id="rodopopupOverlay" class="rodo-popup-bg"></div>
+    <div id="shortPrivacyPolicyPopupOverlay" class="short-privacy-policy-overlay"></div>
+
     
         {% endblock %}
     </main>
 
     <footer>
-        <p>&copy; 2024 Магазин</p>
+        <p>&copy; 2025 Магазин</p>
     </footer>
 </body>
 </html>

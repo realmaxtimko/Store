@@ -20,14 +20,13 @@
                 </tr>
                 {% endfor %}
             </tbody>
-            <tfoot>
-                
-            </tfoot>
         </table>
+        {% if total_price %}
         <div class="cart-actions">
-            <td>{{ cart.item.get_price }} грн</td>
+            <td>{{ total_price }} грн</td>
             <a href="" class="btn btn-primary">Оформити замовлення</a>
         </div>
+        {% endif %}
     {% else %}
         <p>Ваш кошик порожній. <a href="{% url 'products' %}">Перейти до покупок</a></p>
     {% endif %}
