@@ -16,14 +16,14 @@
     <form method="post">
       {% csrf_token %}
     
-      <label>{{ form.username.label }}</label>
-      {{ form.username|add_class:"form-control"|add_placeholder:"Enter your username" }}
+      {{ form.username.label }}
+      {{ form.username }}
       
-      <label>{{ form.password1.label }}</label>
-      {{ form.password1|add_class:"form-control"|add_placeholder:"Enter your password" }}
+      {{ form.password1.label }}
+      {{ form.password1 }}
       
-      <label>{{ form.password2.label }}</label>
-      {{ form.password2|add_class:"form-control"|add_placeholder:"Confirm your password" }}
+      {{ form.password2.label }}
+      {{ form.password2 }}
       
       <button type="submit">Sign up</button>
     </form>
